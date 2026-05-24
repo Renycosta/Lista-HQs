@@ -21,6 +21,30 @@ def top10_melhores_notas():
         nota = float(hq['Rating'])
         print(f"{x:2d} {hq['Title']:20s} {hq['Studio/Publisher']:20s} {nota:4.1f} {hq['comic_id']}")
 
+def HQs_premiadas():
+    premio = {}
+    n_premio = {}
+
+    for x in HQs:
+        if x['Awards'] == "None":
+            nome = x["Title"]
+            n_premio[nome] = n_premio.get(nome, 'Nenhum')
+        else:
+            nome = x["Title"] 
+            award = x["Awards"]
+            premio[nome] = premio.get(nome, award)
+
+    pre_ordenar = sorted(premio.items(), key=lambda val: val[1], reverse=True)
+    n_pre_ordenar = sorted(n_premio.items(), key=lambda val: val[1], reverse=True)
+
+    titulo("HQs prêmiadas")
+    for x, (nome, award) in enumerate(pre_ordenar[0:10], start=1):
+        print(f"{x:2d} {nome:20s} {award:20s}")
+
+    titulo("HQs não prêmiadas")
+    for x, (nome, award) in enumerate(n_pre_ordenar[0:10], start=1):
+        print(f"{x:2d} {nome:20s} {award:20s}")
+
 while True:
     titulo("Jogadores do brazileirão")
     print("1. Top 10 HQs com melhores notas")
