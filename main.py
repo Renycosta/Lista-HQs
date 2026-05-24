@@ -116,6 +116,21 @@ def comparar_volumes():
 
     fig.write_html("grafico_volumes.html")
 
+def comparar_generos():
+    generos = {}
+
+    for x in HQs:
+        genero = x["Genre"]
+        generos[genero] = generos.get(genero, 0) + 1
+
+    fig = px.pie(
+        names=generos.keys(),
+        values=generos.values(),
+        title="Comparar os gêneros das HQs"
+    )
+
+    fig.write_html("grafico_generos.html")
+
 while True:
     titulo("Jogadores do brazileirão")
     print("1. Top 10 HQs com melhores notas")
