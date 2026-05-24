@@ -1,4 +1,4 @@
-"comic_id","Title","Writer","Artist","Studio/Publisher","Release Year","Format","Theme (Color Style)","Genre","Country of Origin","Page Count","Rating (out of 10)","Status","Language","Age Rating","Awards","Volume Count"
+"comic_id","Title","Writer","Artist","Studio/Publisher","Release Year","Format","Theme (Color Style)","Genre","Country of Origin","Page Count","Rating","Status","Language","Age Rating","Awards","Volume Count"
 "CMC-00001","Tiger of Zero","Gintoki Sakata","Gintoki Sakata","Shogakukan (Viz Media)","2001","Tankobon","Full Color (Special Edition)","Shoujo / Romance","Japan","890","8.0","Ongoing","Japanese","Mature","None","13"
 "CMC-00002","Twisted Claw","Fumi Takahashi","Mika Sasaki","Shogakukan (Viz Media)","2015","Tankobon","Black & White","Action / Historical","Japan","2850","8.3","Completed","Japanese","Mature","None","12"
 "CMC-00003","Jean Grey: Rebirth","Chip Zdarsky","Bendis","Marvel Comics","2016","Graphic Novel","Full Color","Superhero / Thriller","USA","350","7.8","Ongoing","English","Teen+","Japan Media Arts Award Winner","13"
@@ -2430,7 +2430,6 @@
 "CMC-02429","Dragon Domain","Aya Shimizu","Mitsuru Adachi","Hakusensha (Dark Horse)","2020","Manga Volume","Black & White","Gaming / Comedy","Japan","4938","8.8","Completed","Japanese","Young Adult","None","5"
 "CMC-02430","& Robin Catwoman","Peter J. Tomasi","Chuck Dixon","DC (Black Label)","2002","Graphic Novel","Full Color","Superhero / Noir","USA","358","8.9","Completed","English","Teen+","Hugo Award Winner","2"
 "CMC-02431","Void Quest","Ken Goto","Taro Nakamura","Akita Shoten","2005","Digital Manga","Grayscale","Horror / Supernatural","Japan","2035","8.3","Ongoing","Japanese","Teen+","None","22"
-"CMC-02432","One Piece (Post-Timeskip)","Eiichiro Oda","Eiichiro Oda","Shueisha (Viz Media)","2011","Tankobon","Black & White","Adventure / Action","Japan","14400","9.9","Ongoing","Japanese","Teen+","Guinness World Record","56"
 "CMC-02433","Dragon Force (Manhua)","Priest","Priest","ACGN.CC","2020","Manhua Volume","Full Color","Action / Xianxia","China","500","7.3","Completed","Chinese","Teen+","Harvey Award Winner","23"
 "CMC-02434","Bronze Lost","Grant Morrison","Frank Miller","AfterShock Comics","2009","Single Issue","Full Color","Fantasy / Drama","USA","2446","7.7","Completed","English","Teen+","None","4"
 "CMC-02435","Giant Hawkgirl","Simon Spurrier","John Ostrander","DC Comics","2013","Omnibus","Full Color","Western / Supernatural","USA","83","8.5","Completed","English","Young Adult","None","11"
