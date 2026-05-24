@@ -22,28 +22,29 @@ def top10_melhores_notas():
         print(f"{x:2d} {hq['Title']:20s} {hq['Studio/Publisher']:20s} {nota:4.1f} {hq['comic_id']}")
 
 def HQs_premiadas():
-    premio = {}
-    n_premio = {}
+    titulo("HQs premiadas")
+    premios_agrupados = {}
 
-    for x in HQs:
-        if x['Awards'] == "None":
-            nome = x["Title"]
-            n_premio[nome] = n_premio.get(nome, 'Nenhum')
-        else:
-            nome = x["Title"] 
-            award = x["Awards"]
-            premio[nome] = premio.get(nome, award)
+    for hq in HQs:
+        if hq['Awards'] != "None":
+            premio = hq['Awards']
+            if premio not in premios_agrupados:
+                premios_agrupados[premio] = []
+            premios_agrupados[premio].append(hq['Title'])
 
-    pre_ordenar = sorted(premio.items(), key=lambda val: val[1], reverse=True)
-    n_pre_ordenar = sorted(n_premio.items(), key=lambda val: val[1], reverse=True)
+    for nome_premio, lista_titulos in premios_agrupados.items():
+        print(f"\nPrêmio: {nome_premio.upper()}")
+        for titulo_hq in lista_titulos:
+            print(f"  -> {titulo_hq}")
 
-    titulo("HQs prêmiadas")
-    for x, (nome, award) in enumerate(pre_ordenar[0:10], start=1):
-        print(f"{x:2d} {nome:20s} {award:20s}")
+    titulo("HQs não premiadas")
+    nao_premiadas = [hq for hq in HQs if hq['Awards'] == "None"]
+    nao_premiadas.sort(key=lambda x: x['Title'])
 
-    titulo("HQs não prêmiadas")
-    for x, (nome, award) in enumerate(n_pre_ordenar[0:10], start=1):
-        print(f"{x:2d} {nome:20s} {award:20s}")
+    print(f"{'Nº':2s} | {'Título':35s} | {'Ano':4s} | {'Nota':4s} | {'Status'}")
+    print("-" * 70)
+    for i, hq in enumerate(nao_premiadas[:50], start=1):
+        print(f"{i:2d} | {hq['Title']:35s} | {hq['Release Year']:4s} | {float(hq['Rating']):4.1f} | N/A")
 
 def analisar_marca():
     titulo("Analisar marca específica")
