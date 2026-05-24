@@ -1,4 +1,5 @@
 import csv
+import plotly.express as px
 HQs = []
 
 with open("HQs.csv", mode="r", encoding="utf-8") as arq:
@@ -98,6 +99,22 @@ def comparar_marcas():
     for t in exclusivos1: print(f" * {t}")
     print(f"\nTítulos exclusivos de {marca2_nome} ({len(exclusivos2)}):")
     for t in exclusivos2: print(f" * {t}")
+
+def comparar_volumes():
+    marcas = {}
+
+    for x in HQs:
+        marca = x["Studio/Publisher"]
+        volumes = x["Volume Count"]
+        marcas[marca] = marcas.get(marca, 0) + int(volumes)
+
+    fig = px.bar(
+        x=marcas.keys(),
+        y=marcas.values(),
+        title="Comparação de quantidade volumes por marcas"
+    )
+
+    fig.write_html("grafico_volumes.html")
 
 while True:
     titulo("Jogadores do brazileirão")
