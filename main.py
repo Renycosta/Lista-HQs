@@ -78,6 +78,26 @@ def analisar_marca():
     else:
         print("\nMarca não encontrada ou sem HQs cadastradas.")
 
+def comparar_marcas():
+    titulo("Comparação entre duas marcas")
+    
+    marca1_nome = input("Digite o nome da primeira marca: ")
+    marca2_nome = input("Digite o nome da segunda marca: ")
+
+    titulos1 = {hq['Title'] for hq in HQs if hq['Studio/Publisher'].lower() == marca1_nome.lower()}
+    titulos2 = {hq['Title'] for hq in HQs if hq['Studio/Publisher'].lower() == marca2_nome.lower()}
+
+    comuns = titulos1.intersection(titulos2)
+    exclusivos1 = titulos1.difference(titulos2)
+    exclusivos2 = titulos2.difference(titulos1)
+
+    print(f"\n--- Comparação: {marca1_nome} vs {marca2_nome} ---")    
+    print(f"\nTítulos em comum ({len(comuns)}):")
+    for t in comuns: print(f" * {t}")
+    print(f"\nTítulos exclusivos de {marca1_nome} ({len(exclusivos1)}):")
+    for t in exclusivos1: print(f" * {t}")
+    print(f"\nTítulos exclusivos de {marca2_nome} ({len(exclusivos2)}):")
+    for t in exclusivos2: print(f" * {t}")
 
 while True:
     titulo("Jogadores do brazileirão")
