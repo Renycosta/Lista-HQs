@@ -45,6 +45,37 @@ def HQs_premiadas():
     for x, (nome, award) in enumerate(n_pre_ordenar[0:10], start=1):
         print(f"{x:2d} {nome:20s} {award:20s}")
 
+def analisar_marca():
+    titulo("Analisar marca específica")
+
+    nome_busca = input("Digite o nome da marca (Studio/Publisher): ")
+
+    titulos_encontrados = []
+    soma_notas = 0.0
+    total_volumes = 0
+    contador = 0
+
+    for hq in HQs:
+        if hq['Studio/Publisher'].strip().lower() == nome_busca.strip().lower():
+            titulos_encontrados.append(hq['Title'])
+            soma_notas += float(hq['Rating'])
+            total_volumes += int(hq['Volume Count'])
+            contador += 1
+
+    if contador > 0:
+        media_notas = soma_notas / contador
+        
+        print(f"\nResultados para '{nome_busca}':")
+        print(f"Quantidade de HQs encontradas: {contador}")
+        print(f"Média de notas: {media_notas:.2f}")
+        print(f"Total de volumes publicados: {total_volumes}")
+        print("Títulos encontrados:")
+        for x in titulos_encontrados:
+            print(f"- {x}")
+    else:
+        print("\nMarca não encontrada ou sem HQs cadastradas.")
+
+
 while True:
     titulo("Jogadores do brazileirão")
     print("1. Top 10 HQs com melhores notas")
