@@ -14,12 +14,14 @@ def titulo(texto):
 def top10_melhores_notas():
     titulo("Top 10 HQs com as melhores notas")
 
-    notas = [x for x in HQs]
-    ordenar = sorted(notas, key=lambda hq: float(hq['Rating']), reverse=True)
+    ordenar = sorted(HQs, key=lambda hq: float(hq['Rating'] or 0), reverse=True)
+
+    print(f"{'Nº':2s} | {'ID':10s} | {'Título':35s} | {'Editora':30s} | {'Nota':4s}")
+    print("-" * 75)
 
     for x, hq in enumerate(ordenar[0:10], start=1):
-        nota = float(hq['Rating'])
-        print(f"{x:2d} {hq['Title']:20s} {hq['Studio/Publisher']:20s} {nota:4.1f} {hq['comic_id']}")
+        nota = float(hq['Rating'] or 0)
+        print(f"{i:2d} | {hq['comic_id']:10s} | {hq['Title']:35s} | {hq['Studio/Publisher']:30s} | {nota:4.1f}")
 
 def HQs_premiadas():
     titulo("HQs premiadas")
