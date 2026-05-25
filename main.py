@@ -10,7 +10,7 @@ with open("HQs.csv", mode="r", encoding="utf-8") as arq:
 def titulo(texto):
     print()
     print(texto)
-    print("-"*40)
+    print("-" * 75)
 
 def top10_melhores_notas():
     titulo("Top 10 HQs com as melhores notas")
@@ -22,7 +22,7 @@ def top10_melhores_notas():
 
     for x, hq in enumerate(ordenar[0:10], start=1):
         nota = float(hq['Rating'] or 0)
-        print(f"{i:2d} | {hq['comic_id']:10s} | {hq['Title']:35s} | {hq['Studio/Publisher']:30s} | {nota:4.1f}")
+        print(f"{x:2d} | {hq['comic_id']:10s} | {hq['Title']:35s} | {hq['Studio/Publisher']:30s} | {nota:4.1f}")
 
 def HQs_premiadas():
     titulo("HQs premiadas")
@@ -45,7 +45,7 @@ def HQs_premiadas():
     nao_premiadas.sort(key=lambda x: x['Title'])
 
     print(f"{'Nº':2s} | {'Título':35s} | {'Ano':4s} | {'Nota':4s} | {'Status'}")
-    print("-" * 70)
+    print("-" * 75)
     for i, hq in enumerate(nao_premiadas[:50], start=1):
         print(f"{i:2d} | {hq['Title']:35s} | {hq['Release Year']:4s} | {float(hq['Rating']):4.1f} | N/A")
 
@@ -95,8 +95,10 @@ def comparar_marcas():
     print(f"\n--- Comparação: {marca1_nome} vs {marca2_nome} ---")    
     print(f"\nTítulos em comum ({len(comuns)}):")
     for t in comuns: print(f" * {t}")
+
     print(f"\nTítulos exclusivos de {marca1_nome} ({len(exclusivos1)}):")
     for t in exclusivos1: print(f" * {t}")
+
     print(f"\nTítulos exclusivos de {marca2_nome} ({len(exclusivos2)}):")
     for t in exclusivos2: print(f" * {t}")
 
@@ -132,7 +134,7 @@ def comparar_generos():
     fig.write_html("grafico_generos.html")
 
 while True:
-    titulo("Jogadores do brazileirão")
+    titulo("HQs")
     print("1. Top 10 HQs com melhores notas")
     print("2. HQs prêmiadas")
     print("3. Analisar marca especifica")
